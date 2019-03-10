@@ -31,6 +31,7 @@
 
 		public bool HasAirConditioning { get; set; }
 
+		[MaxLength(300)]
 		public string ImageUrl { get; set; }
 
 		public int TypeId { get; private set; }

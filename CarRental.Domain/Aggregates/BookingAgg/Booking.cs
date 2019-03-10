@@ -12,6 +12,7 @@
 		public virtual AvailableCar AvailableCar { get; private set; }
 		
 		[Required]
+		[MaxLength(250)]
 		public string UserId { get; private set; }
 		public User User { get; private set; }
 

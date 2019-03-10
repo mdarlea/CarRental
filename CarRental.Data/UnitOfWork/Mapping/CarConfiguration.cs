@@ -33,7 +33,8 @@
 				TransmissionType = Car.CarTransmissionType.Manual,
 				HasAirConditioning = true,
 				HasPetrol = true,
-				HasDiesel = false
+				HasDiesel = false,
+				ImageUrl = "assets/images/VolkswagenUp.png"
 			};
 			car.SetTheTypeReference(1);
 			car.ChangeCurrentIdentity(1);
@@ -48,7 +49,8 @@
 				TransmissionType = Car.CarTransmissionType.Manual,
 				HasAirConditioning = true,
 				HasPetrol = true,
-				HasDiesel = true
+				HasDiesel = true,
+				ImageUrl = "assets/images/VolkswagenPolo.png"
 			};
 			car.SetTheTypeReference(1);
 			car.ChangeCurrentIdentity(2);
@@ -63,7 +65,8 @@
 				TransmissionType = Car.CarTransmissionType.Automatic,
 				HasAirConditioning = true,
 				HasPetrol = true,
-				HasDiesel = false
+				HasDiesel = false,
+				ImageUrl = "assets/images/RenaultClioAutomatic.png"
 			};
 			car.SetTheTypeReference(1);
 			car.ChangeCurrentIdentity(3);
@@ -78,7 +81,8 @@
 				TransmissionType = Car.CarTransmissionType.Manual,
 				HasAirConditioning = true,
 				HasPetrol = true,
-				HasDiesel = true
+				HasDiesel = true,
+				ImageUrl = "assets/images/VolkswagenGolf.png"
 			};
 			car.SetTheTypeReference(2);
 			car.ChangeCurrentIdentity(4);
@@ -93,7 +97,8 @@
 				TransmissionType = Car.CarTransmissionType.Automatic,
 				HasAirConditioning = true,
 				HasPetrol = true,
-				HasDiesel = true
+				HasDiesel = true,
+				ImageUrl = "assets/images/VolkswagenGolfAutomatic.png"
 			};
 			car.SetTheTypeReference(2);
 			car.ChangeCurrentIdentity(5);
@@ -108,7 +113,8 @@
 				TransmissionType = Car.CarTransmissionType.Manual,
 				HasAirConditioning = true,
 				HasPetrol = true,
-				HasDiesel = true
+				HasDiesel = true,
+				ImageUrl = "assets/images/DaciaDuster.png"
 			};
 			car.SetTheTypeReference(2);
 			car.ChangeCurrentIdentity(6);
@@ -123,7 +129,8 @@
 				TransmissionType = Car.CarTransmissionType.Automatic,
 				HasAirConditioning = true,
 				HasPetrol = false,
-				HasDiesel = true
+				HasDiesel = true,
+				ImageUrl = "assets/images/MercedesBenzC.png"
 			};
 			car.SetTheTypeReference(3);
 			car.ChangeCurrentIdentity(7);
@@ -138,7 +145,8 @@
 				TransmissionType = Car.CarTransmissionType.Automatic,
 				HasAirConditioning = true,
 				HasPetrol = false,
-				HasDiesel = true
+				HasDiesel = true,
+				ImageUrl = "assets/images/MercedesBenzGLC.png"
 			};
 			car.SetTheTypeReference(3);
 			car.ChangeCurrentIdentity(8);
@@ -153,7 +161,8 @@
 				TransmissionType = Car.CarTransmissionType.Automatic,
 				HasAirConditioning = true,
 				HasPetrol = false,
-				HasDiesel = true
+				HasDiesel = true,
+				ImageUrl = "assets/images/MercedesBenzGLE.png"
 			};
 			car.SetTheTypeReference(3);
 			car.ChangeCurrentIdentity(9);

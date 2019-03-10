@@ -1,27 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using AutoMapper;
-using CarRental.Api.Extensions;
-using CarRental.Api.Models;
-using CarRental.Identity.Api.Extensions;
-using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-
-namespace CarRental.Api
+﻿namespace CarRental.Api
 {
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Net;
+	using AutoMapper;
+	using CarRental.Api.Extensions;
+	using CarRental.Api.Models;
+	using CarRental.Data.UnitOfWork;
+	using CarRental.Identity.Api.Extensions;
+	using FluentValidation.AspNetCore;
+	using Microsoft.AspNetCore.Builder;
+	using Microsoft.AspNetCore.Diagnostics;
+	using Microsoft.AspNetCore.Hosting;
+	using Microsoft.AspNetCore.Http;
+	using Microsoft.EntityFrameworkCore;
+	using Microsoft.Extensions.Configuration;
+	using Microsoft.Extensions.DependencyInjection;
+	using Microsoft.Extensions.DependencyInjection.Extensions;
+	using Microsoft.Extensions.Logging;
+	
 	public class Startup
 	{
 		public Startup(IConfiguration configuration)
@@ -38,6 +36,11 @@ namespace CarRental.Api
 
 			services.AddCors();
 			services.AddSecurity(Configuration);
+
+			services.AddDbContext<CarRentalUnitOfWork>(optionsBuilder => {
+				optionsBuilder					
+					.UseMySQL(Configuration.GetConnectionString("CarRentalDataSource"));
+			}, ServiceLifetime.Scoped);
 
 			services.AddAutoMapper();
 
