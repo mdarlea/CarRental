@@ -1,0 +1,28 @@
+INFO  2019-03-10 06:10:38,435  1325ms WebHost                ?                  - Request starting HTTP/2.0 GET https://localhost:44320/api/values  
+INFO  2019-03-10 06:10:39,323  2213ms WebHost                ?                  - Request finished in 865.4264ms 404 
+INFO  2019-03-10 06:16:27,385 350275ms WebHost                ?                  - Request starting HTTP/1.1 POST https://localhost:44320/api/auth/register application/json 88
+INFO  2019-03-10 06:16:27,532 350422ms ontrollerActionInvoker ?                  - Route matched with {action = "Register", controller = "Auth"}. Executing action CarRental.Api.AuthController.Register (CarRental.Api)
+INFO  2019-03-10 06:16:29,210 352100ms ontrollerActionInvoker ?                  - Executing action method CarRental.Api.AuthController.Register (CarRental.Api) with arguments (CarRental.Api.Models.CreateApplicationUserModel) - Validation state: Invalid
+INFO  2019-03-10 06:17:25,086 407976ms ontrollerActionInvoker ?                  - Executed action method CarRental.Api.AuthController.Register (CarRental.Api), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 55866.6215ms.
+INFO  2019-03-10 06:17:25,103 407994ms ObjectResultExecutor   ?                  - Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.SerializableError'.
+INFO  2019-03-10 06:17:25,159 408049ms ontrollerActionInvoker ?                  - Executed action CarRental.Api.AuthController.Register (CarRental.Api) in 57619.1828ms
+INFO  2019-03-10 06:17:25,164 408055ms WebHost                ?                  - Request finished in 57833.2794ms 400 application/json; charset=utf-8
+INFO  2019-03-10 06:17:49,577 432467ms WebHost                ?                  - Request starting HTTP/1.1 POST https://localhost:44320/api/auth/register application/json 112
+INFO  2019-03-10 06:17:49,584 432474ms ontrollerActionInvoker ?                  - Route matched with {action = "Register", controller = "Auth"}. Executing action CarRental.Api.AuthController.Register (CarRental.Api)
+INFO  2019-03-10 06:17:49,630 432520ms ontrollerActionInvoker ?                  - Executing action method CarRental.Api.AuthController.Register (CarRental.Api) with arguments (CarRental.Api.Models.CreateApplicationUserModel) - Validation state: Invalid
+INFO  2019-03-10 06:18:15,639 458530ms ontrollerActionInvoker ?                  - Executed action method CarRental.Api.AuthController.Register (CarRental.Api), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 26004.9875ms.
+INFO  2019-03-10 06:18:15,644 458534ms ObjectResultExecutor   ?                  - Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.SerializableError'.
+INFO  2019-03-10 06:18:15,650 458540ms ontrollerActionInvoker ?                  - Executed action CarRental.Api.AuthController.Register (CarRental.Api) in 26060.7607ms
+INFO  2019-03-10 06:18:15,653 458543ms WebHost                ?                  - Request finished in 26098.3104ms 400 application/json; charset=utf-8
+INFO  2019-03-10 06:18:26,481 469371ms WebHost                ?                  - Request starting HTTP/1.1 POST https://localhost:44320/api/auth/register application/json 115
+INFO  2019-03-10 06:18:26,486 469377ms ontrollerActionInvoker ?                  - Route matched with {action = "Register", controller = "Auth"}. Executing action CarRental.Api.AuthController.Register (CarRental.Api)
+INFO  2019-03-10 06:18:26,499 469389ms ontrollerActionInvoker ?                  - Executing action method CarRental.Api.AuthController.Register (CarRental.Api) with arguments (CarRental.Api.Models.CreateApplicationUserModel) - Validation state: Valid
+INFO  2019-03-10 06:21:34,905   767ms WebHost                ?                  - Request starting HTTP/2.0 GET https://localhost:44320/api/values  
+INFO  2019-03-10 06:21:35,731  1594ms WebHost                ?                  - Request finished in 840.4687ms 404 
+INFO  2019-03-10 06:21:55,484 21347ms WebHost                ?                  - Request starting HTTP/1.1 POST https://localhost:44320/api/auth/register application/json 115
+INFO  2019-03-10 06:21:55,555 21418ms ontrollerActionInvoker ?                  - Route matched with {action = "Register", controller = "Auth"}. Executing action CarRental.Api.AuthController.Register (CarRental.Api)
+INFO  2019-03-10 06:21:56,784 22646ms ontrollerActionInvoker ?                  - Executing action method CarRental.Api.AuthController.Register (CarRental.Api) with arguments (CarRental.Api.Models.CreateApplicationUserModel) - Validation state: Invalid
+INFO  2019-03-10 06:22:30,208 56071ms ontrollerActionInvoker ?                  - Executed action method CarRental.Api.AuthController.Register (CarRental.Api), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 33418.4299ms.
+INFO  2019-03-10 06:22:30,218 56081ms ObjectResultExecutor   ?                  - Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.SerializableError'.
+INFO  2019-03-10 06:22:30,255 56117ms ontrollerActionInvoker ?                  - Executed action CarRental.Api.AuthController.Register (CarRental.Api) in 34691.8569ms
+INFO  2019-03-10 06:22:30,260 56123ms WebHost                ?                  - Request finished in 34776.3755ms 400 application/json; charset=utf-8

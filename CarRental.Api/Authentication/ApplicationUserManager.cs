@@ -35,6 +35,52 @@
 			}
 		}
 
+		public async Task<IdentityResult> UpdateDriverLicenseAsync(ApplicationUser user, DriverLicense driverLicense) {
+			ThrowIfDisposed();
+			return await ApplicationUserStore.UpdateDriverLicenseAsync(user, driverLicense, CancellationToken);					   			
+		}
+
+		public async Task<IdentityResult> UpdateCreditCardAsync(ApplicationUser user, CreditCard creditCard)
+		{
+			ThrowIfDisposed();
+			return await ApplicationUserStore.UpdateCreditCardAsync(user, creditCard, CancellationToken);
+		}
+
+		public async Task<IdentityResult> UpdateBillingAddressAsync(ApplicationUser user, Address billingAddress)
+		{
+			ThrowIfDisposed();
+			return await ApplicationUserStore.UpdateBillingAddressAsync(user, billingAddress, CancellationToken);
+		}
+
+		public async Task<ApplicationUser> FindUserWithDriverLicenseAsync(string userId) {
+			ThrowIfDisposed();
+			if (userId == null)
+			{
+				throw new ArgumentNullException(nameof(userId));
+			}
+			return await ApplicationUserStore.FindUserWithDriverLicenseAsync(userId, CancellationToken);
+		}
+
+		public async Task<ApplicationUser> FindUserWithCreditCardAsync(string userId)
+		{
+			ThrowIfDisposed();
+			if (userId == null)
+			{
+				throw new ArgumentNullException(nameof(userId));
+			}
+			return await ApplicationUserStore.FindUserWithCreditCardAsync(userId, CancellationToken);
+		}
+
+		public async Task<ApplicationUser> FindUserWithCreditCardAndDriverLicenseAsync(string userId)
+		{
+			ThrowIfDisposed();
+			if (userId == null)
+			{
+				throw new ArgumentNullException(nameof(userId));
+			}
+			return await ApplicationUserStore.FindUserWithDriverLicenseAndCreditCardAsync(userId, CancellationToken);
+		}
+
 		public async Task<IdentityResult> CreateAsync(ApplicationUser user, DriverLicense driverLicense, Address billingAddress, CreditCard creditCard, string password)
 		{
 			ApplicationUserManager userManager = this;

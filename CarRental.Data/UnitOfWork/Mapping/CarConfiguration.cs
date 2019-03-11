@@ -21,7 +21,7 @@
 			builder.HasData(SeedCars());
 		}
 
-		public static List<Car> SeedCars() {
+		private static List<Car> SeedCars() {
 			var cars = new List<Car>();
 
 			var car = new Car

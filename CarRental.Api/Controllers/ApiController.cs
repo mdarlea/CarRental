@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Swaksoft.Core.Dto;
-using System;
-using System.Linq;
-
-namespace SocialMedia.Host.Controllers
+﻿namespace CarRental.Api
 {
+	using Microsoft.AspNetCore.Identity;
+	using Microsoft.AspNetCore.Mvc;
+	using Swaksoft.Core.Dto;
+	using System;
+	using System.Linq;
+
 	public abstract class ApiController : ControllerBase
 	{
 		protected IActionResult GetErrorResult(IdentityResult result)

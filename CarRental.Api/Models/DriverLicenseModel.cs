@@ -3,7 +3,8 @@
 	using FluentValidation;
 
 	public class DriverLicenseModel
-	{		
+	{
+		public int Id { get; set; }
 		public string DriverLicenseNumber { get; set; }	
 		public string CountryOfIssue { get; set; }		
 		public string StateOfIssue { get; set; }

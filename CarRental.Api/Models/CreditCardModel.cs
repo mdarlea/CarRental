@@ -10,7 +10,8 @@
 			MasterCard,
 			AmericanExpress
 		}
-				
+
+		public int Id { get; set; }
 		public CreditCardType Type { get; set; }		
 		public string CreditCardNumber { get; set; }
 		public string NameOnCard { get; set; }		

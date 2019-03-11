@@ -46,6 +46,7 @@
 
 			services.AddMvc()
 				.AddFluentValidation(fv => {
+					fv.ImplicitlyValidateChildProperties = true;
 					fv.RegisterValidatorsFromAssemblyContaining<AddressModel>();
 					// fv.RegisterValidatorsFromAssemblyContaining<CreateEventCommand>();
 				}); ;

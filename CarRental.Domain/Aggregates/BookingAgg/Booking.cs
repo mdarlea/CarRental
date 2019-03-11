@@ -14,7 +14,7 @@
 		[Required]
 		[MaxLength(250)]
 		public string UserId { get; private set; }
-		public User User { get; private set; }
+		public virtual User User { get; private set; }
 
 		public DateTime From { get; set; }
 		public DateTime To { get; set; }

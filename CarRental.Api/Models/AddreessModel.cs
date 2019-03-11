@@ -4,6 +4,7 @@
 	
 	public class AddressModel 
     {
+		public int Id { get; set; }
         public string StreetAddress { get; set; }        
         public string SuiteNumber { get; set; }        
         public int GeolocationStreetNumber { get; set; }        

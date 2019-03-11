@@ -9,7 +9,7 @@
 		public void Configure(EntityTypeBuilder<Booking> builder)
 		{
 			builder.HasOne(b => b.User).WithMany().HasForeignKey(b => b.UserId);
-			builder.HasOne(b => b.AvailableCar).WithMany().HasForeignKey(b => b.AvailableCarId);
+			builder.HasOne(b => b.AvailableCar).WithMany(ac => ac.Bookings).HasForeignKey(b => b.AvailableCarId);
 		}
 	}
 }

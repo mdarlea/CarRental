@@ -11,37 +11,23 @@ namespace CarRental.Identity.Data.Tests
 	[TestClass]
 	public class UserStoreTests
 	{
+		private ApplicationUser user;
+		private Address billingAddress;
+		private CreditCard creditCard;
+		private DriverLicense driverLicense;
+
 		[TestMethod]
 		public async Task CreateInvalidUser()
 		{
+			StubData();
+
 			// user to create
-			var user = new ApplicationUser
+			user = new ApplicationUser
 			{
 				Email = "testor@gmail.com",
 				UserName = "testor@gmail.com"		
 			};
-			var billingAddress = new Address
-			{
-				StreetAddress = "Str. Brasov nr.9",
-				SuiteNumber = "3",
-				City = "Timisoara",
-				CountryIsoCode = "ro",
-				Latitude = 45.747699,
-				Longitude = 21.222093900000004
-			};
-			var creditCard = new CreditCard
-			{
-				Type = CreditCard.CreditCardType.VISA,
-				CreditCardNumber = "1234",
-				NameOnCard = "Testor User",
-
-			};
-			var driverLicense = new DriverLicense
-			{
-				DriverLicenseNumber = "567891",
-				CountryOfIssue = "Romania"
-			};
-
+			
 			using (var factory = new ApplicationDbContextFactory())
 			{
 				using (var dbContext = factory.CreateContext(false))
@@ -60,34 +46,7 @@ namespace CarRental.Identity.Data.Tests
 		[TestMethod]
 		public async Task CreateNewUser()
 		{
-			// user to create
-			var user = new ApplicationUser
-			{
-				Email = "testor@gmail.com",
-				UserName = "testor@gmail.com",
-				Name = new Name("Testor", "User")
-			};
-			var billingAddress = new Address
-			{
-				StreetAddress = "Str. Brasov nr.9",
-				SuiteNumber = "3",
-				City = "Timisoara",
-				CountryIsoCode = "ro",
-				Latitude = 45.747699,
-				Longitude = 21.222093900000004
-			};
-			var creditCard = new CreditCard
-			{
-				Type = CreditCard.CreditCardType.VISA,
-				CreditCardNumber = "1234",
-				NameOnCard = "Testor User",
-
-			};
-			var driverLicense = new DriverLicense
-			{
-				DriverLicenseNumber = "567891",
-				CountryOfIssue = "Romania"
-			};
+			StubData();
 
 			using (var factory = new ApplicationDbContextFactory())
 			{
@@ -132,6 +91,91 @@ namespace CarRental.Identity.Data.Tests
 					Assert.IsTrue(applicationUser.CreditCard.BillingAddress.Longitude == billingAddress.Longitude);
 				}
 			}
+		}
+
+		[TestMethod]
+		public async Task UpdateDriverLicense()
+		{
+			StubData();
+
+			using (var factory = new ApplicationDbContextFactory())
+			{
+				using (var dbContext = factory.CreateContext(false))
+				{
+					using (var userStore = new ApplicationUserStore(dbContext))
+					{
+						var result = await userStore.CreateAsync(user, this.driverLicense, billingAddress, creditCard);
+
+						Assert.IsTrue(result.Succeeded);
+					}
+				}
+
+				DriverLicense driverLicense;
+				using (var dbContext = factory.CreateContext(true))
+				{					
+					using (var userStore = new ApplicationUserStore(dbContext))
+					{
+						var applicationUser = await userStore.FindUserWithDriverLicenseAsync(user.Id);
+
+						Assert.IsNotNull(applicationUser);
+
+						driverLicense = new DriverLicense
+						{
+							Id = applicationUser.DriverLicenseId,
+							DriverLicenseNumber = "70001",
+							CountryOfIssue = this.driverLicense.CountryOfIssue
+						};
+
+						var result = await userStore.UpdateDriverLicenseAsync(applicationUser, driverLicense);
+
+						Assert.IsTrue(result.Succeeded);
+					}
+				}
+
+				using (var dbContext = factory.CreateContext(false))
+				{
+					var applicationUser = await dbContext.Users
+												   .Include(u => u.DriverLicense)												   
+												   .SingleOrDefaultAsync(u => u.UserName == user.UserName);
+					
+					Assert.IsNotNull(applicationUser.DriverLicense);
+					Assert.IsTrue(applicationUser.DriverLicenseId == applicationUser.DriverLicense.Id);
+					Assert.IsTrue(applicationUser.DriverLicense.DriverLicenseNumber == driverLicense.DriverLicenseNumber);
+					Assert.IsTrue(applicationUser.DriverLicense.CountryOfIssue == driverLicense.CountryOfIssue);					
+				}
+			}
+		}
+
+		private void StubData()
+		{
+			// user to create
+			user = new ApplicationUser
+			{
+				Email = "testor@gmail.com",
+				UserName = "testor@gmail.com",
+				Name = new Name("Testor", "User")
+			};
+			billingAddress = new Address
+			{
+				StreetAddress = "Str. Brasov nr.9",
+				SuiteNumber = "3",
+				City = "Timisoara",
+				CountryIsoCode = "ro",
+				Latitude = 45.747699,
+				Longitude = 21.222093900000004
+			};
+			creditCard = new CreditCard
+			{
+				Type = CreditCard.CreditCardType.VISA,
+				CreditCardNumber = "1234",
+				NameOnCard = "Testor User",
+
+			};
+			driverLicense = new DriverLicense
+			{
+				DriverLicenseNumber = "567891",
+				CountryOfIssue = "Romania"
+			};
 		}
 	}
 }
