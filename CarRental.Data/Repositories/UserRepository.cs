@@ -1,14 +1,14 @@
 ﻿namespace CarRental.Data.Repositories
 {
-	using CarRental.Domain.Aggregates.UserAgg;
-	using Swaksoft.Domain.Seedwork;
+	using CarRental.Data.UnitOfWork;
+	using CarRental.Domain.Aggregates.UserAgg;	
 	using Swaksoft.Infrastructure.Data.Seedwork.Repositories;
 	using System;
 
 
 	public class UserRepository : Repository<User>, IUserRepository
 	{
-		public UserRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
+		public UserRepository(CarRentalUnitOfWork unitOfWork) : base(unitOfWork)
 		{
 		}
 

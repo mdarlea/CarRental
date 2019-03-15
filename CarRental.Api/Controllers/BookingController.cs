@@ -2,13 +2,12 @@
 {
 	using System;	
 	using System.Threading.Tasks;
-	using CarRental.Application.Commands;
-	using MediatR;
-	using Microsoft.AspNetCore.Authorization;
+	using CarRental.Application.Commands;	
+	using MediatR;	
 	using Microsoft.AspNetCore.Mvc;
 	using Swaksoft.Core.Dto;
 
-	[Authorize(Policy = "ApiUser")]
+	// [Authorize(Policy = "ApiUser")]
 	[Route("api/[controller]")]
 	public class BookingController : ApiController
 	{
@@ -24,9 +23,10 @@
 			{
 				throw new ArgumentNullException(nameof(command));
 			}
-			if (!ModelState.IsValid) return BadRequest(ModelState);
 
 			command.UserId = GetUserId();
+
+			if (!ModelState.IsValid) return BadRequest(ModelState);			
 
 			var result = await mediator.Send(command);
 

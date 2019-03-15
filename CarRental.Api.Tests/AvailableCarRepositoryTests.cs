@@ -27,7 +27,7 @@ namespace CarRental.Api.Tests
 				}
 				using (var context = factory.CreateContext(true))
 				{
-					var repository = new AvailableCarRepository(context);
+					var repository = new Infrastructure.Repositories.AvailableCarRepository(context);
 
 					DateTime from = DateTime.Now;
 					from = from.AddDays(1);

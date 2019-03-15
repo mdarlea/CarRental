@@ -20,7 +20,9 @@
 		public CreateBookingCommandHandler(
 			IUserRepository userRepository, 
 			IAvailableCarRepository availableCarRepository, 
-			IBookingRepository bookingRepository) {
+			IBookingRepository bookingRepository
+			)
+		{
 			this.userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
 			this.availableCarRepository = availableCarRepository ?? throw new ArgumentNullException(nameof(availableCarRepository));
 			this.bookingRepository = bookingRepository ?? throw new ArgumentNullException(nameof(bookingRepository));
@@ -31,7 +33,7 @@
 			if (request == null)
 			{
 				throw new ArgumentNullException(nameof(request));
-			}
+			}			
 
 			// gets the available car
 			var availableCar = availableCarRepository.Get(request.AvailableCarId);
