@@ -13,6 +13,7 @@ namespace CarRental.Api.Tests
 	using Swaksoft.Domain.Seedwork.Aggregates.ValueObjects;
 	using System;
 	using System.Collections.Generic;
+	using System.Linq;
 	using System.Threading.Tasks;
 
 	[TestClass]
@@ -35,6 +36,9 @@ namespace CarRental.Api.Tests
 					to = to.AddDays(6);
 
 					var data = await repository.GetAvailableCarsAsync(from, to);
+					var availableCar = data.SingleOrDefault(d => d.Id == 1);
+					Assert.IsNotNull(availableCar);
+					Assert.IsTrue(availableCar.AvailableCars == 8);
 				}
 			}
 		}
