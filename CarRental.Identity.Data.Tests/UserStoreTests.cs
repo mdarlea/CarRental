@@ -156,7 +156,8 @@ namespace CarRental.Identity.Data.Tests
 			{
 				StreetAddress = "Str. Brasov nr.9",
 				SuiteNumber = "3",
-				City = "Timisoara"
+				City = "Timisoara",
+				Zip = "300145"
 			};
 			creditCard = new CreditCard
 			{
