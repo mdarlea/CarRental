@@ -6,17 +6,17 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace CarRental.Data.Migrations
+namespace CarRental.Data.MySql.Migrations
 {
     [DbContext(typeof(CarRentalUnitOfWork))]
-    [Migration("20190310114921_InitialCreate")]
+    [Migration("20190313184447_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.2-servicing-10034");
+                .HasAnnotation("ProductVersion", "2.2.3-servicing-35854");
 
             modelBuilder.Entity("CarRental.Domain.Aggregates.AvailableCarAgg.AvailableCar", b =>
                 {
@@ -345,7 +345,7 @@ namespace CarRental.Data.Migrations
             modelBuilder.Entity("CarRental.Domain.Aggregates.BookingAgg.Booking", b =>
                 {
                     b.HasOne("CarRental.Domain.Aggregates.AvailableCarAgg.AvailableCar", "AvailableCar")
-                        .WithMany()
+                        .WithMany("Bookings")
                         .HasForeignKey("AvailableCarId")
                         .OnDelete(DeleteBehavior.Cascade);
 

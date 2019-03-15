@@ -1,6 +1,5 @@
-﻿namespace CarRental.Domain.Aggregates.AvailableCarAgg
+﻿namespace CarRental.ReadModel
 {
-	using CarRental.Api.Models;	
 	using System;
 	using System.Collections.Generic;
 	using System.Threading.Tasks;

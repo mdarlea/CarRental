@@ -34,38 +34,4 @@
 			modelBuilder.ApplyConfiguration(new BookingConfiguration());
 		}
 	}
-
-	public class CarRentalUnitOfWorkDesignFactory : IDesignTimeDbContextFactory<CarRentalUnitOfWork>
-	{
-		public CarRentalUnitOfWork CreateDbContext(string[] args)
-		{
-			var optionsBuilder = new DbContextOptionsBuilder<CarRentalUnitOfWork>()
-			   .UseMySQL("Data Source=mysql502.discountasp.net; port=3306; Initial Catalog=MYSQL5_948078_carrental; uid=carrentaluser; pwd=demo2019;");
-
-			return new CarRentalUnitOfWork(optionsBuilder.Options, new NoMediator());
-		}
-
-		class NoMediator : IMediator
-		{
-			public Task Publish<TNotification>(TNotification notification, CancellationToken cancellationToken = default(CancellationToken)) where TNotification : INotification
-			{
-				return Task.CompletedTask;
-			}
-
-			public Task Publish(object notification, CancellationToken cancellationToken = default(CancellationToken))
-			{
-				return Task.CompletedTask;
-			}
-
-			public Task<TResponse> Send<TResponse>(IRequest<TResponse> request, CancellationToken cancellationToken = default(CancellationToken))
-			{
-				return Task.FromResult<TResponse>(default(TResponse));
-			}
-
-			public Task Send(IRequest request, CancellationToken cancellationToken = default(CancellationToken))
-			{
-				return Task.CompletedTask;
-			}
-		}
-	}
 }

@@ -16,11 +16,6 @@
         [MaxLength(10)]
         public string SuiteNumber { get; set; }
         
-        public int GeolocationStreetNumber { get; set; }
-
-        [MaxLength(150)]
-        public string GeolocationStreet { get; set; }
-
         [MaxLength(50)]
         [Required(ErrorMessage = "City is required")]
         public string City { get; set; }
@@ -28,17 +23,8 @@
         [MaxLength(30)]
         public string State { get; set; }
 
+		[Required]
         [MaxLength(20)]        
-        public string Zip { get; set; }
-
-        [Required(ErrorMessage = "Country ISO code is required")]
-        [MaxLength(50)]
-        public string CountryIsoCode { get; set; }
-       
-        [Required(ErrorMessage = "Latitude is required")]
-        public double Latitude { get; set; }
-
-        [Required(ErrorMessage = "Longitude is required")]
-        public double Longitude { get; set; }
+        public string Zip { get; set; }        
     }
 }

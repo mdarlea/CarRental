@@ -2,10 +2,14 @@
 {
 	using AutoMapper;
 	using CarRental.Api.Models;
+	using CarRental.Domain.Aggregates.AvailableCarAgg;
+	using CarRental.Domain.Aggregates.CarAgg;
 	using CarRental.Identity.Data.Entities;
 	using CarRental.Identity.Data.ValueObjects;
+	using Swaksoft.Application.Seedwork.TypeMapping;
+	using Dto = ReadModel;
 
-	public class ModelMappingProfile : Profile
+	public class ModelMappingProfile : AutoMapperProfile
 	{
 		public ModelMappingProfile() {
 			CreateMap<UserModel, ApplicationUser>()
@@ -16,6 +20,9 @@
 				.ForMember(cc => cc.BillingAddressId, opt => opt.Ignore())
 				.ForMember(cc => cc.BillingAddress, opt => opt.Ignore());
 			CreateMap<DriverLicenseModel, DriverLicense>();
+			CreateMap<Car, Dto.Car>()
+				.ForMember(c => c.Type, opt => opt.MapFrom(c => c.Type.Type));
+			CreateActionResultMap<AvailableCar, Dto.AvailableCarResult>();
 		}
 	}
 

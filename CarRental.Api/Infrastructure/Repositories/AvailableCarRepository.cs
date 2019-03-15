@@ -1,8 +1,7 @@
 ﻿namespace CarRental.Api.Infrastructure.Repositories
 {
-	using CarRental.Api.Models;
 	using CarRental.Data.UnitOfWork;
-	using CarRental.Domain.Aggregates.AvailableCarAgg;
+	using CarRental.ReadModel;
 	using Microsoft.EntityFrameworkCore;
 	using System;
 	using System.Collections.Generic;

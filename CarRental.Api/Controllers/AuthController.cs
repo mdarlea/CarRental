@@ -13,9 +13,10 @@ namespace CarRental.Api
 	using Microsoft.AspNetCore.Mvc;
 	using Microsoft.Extensions.Options;
 	using Newtonsoft.Json;
-	using ExternalLoginInfo = CarRental.Api.Models.ExternalLoginInfo;
+	using ExternalLoginInfoModel = Models.ExternalLoginInfoModel;
 
 	[Route("api/[controller]/[action]")]
+	// [ApiController]
 	public class AuthController : ApiController
 	{		
 		private readonly ApplicationUserManager userManager;		
@@ -62,7 +63,7 @@ namespace CarRental.Api
 		}
 				
 		[HttpPost]
-		public async Task<IActionResult> LoginExternal([FromBody]ExternalLoginInfo externalLoginInfo)
+		public async Task<IActionResult> LoginExternal([FromBody]ExternalLoginInfoModel externalLoginInfo)
 		{
 			if (externalLoginInfo == null 
 				|| string.IsNullOrWhiteSpace(externalLoginInfo.Provider) 
@@ -94,7 +95,7 @@ namespace CarRental.Api
 				return await GenerateJwtTokenAsync(user);				
 			}
 					
-			return new OkObjectResult(new ExternalLoginInfo() {
+			return new OkObjectResult(new ExternalLoginInfoModel() {
 				Provider = externalLoginInfo.Provider,
 				ProviderKey = externalLoginInfo.ProviderKey
 			});

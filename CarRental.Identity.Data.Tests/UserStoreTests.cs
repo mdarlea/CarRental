@@ -85,10 +85,7 @@ namespace CarRental.Identity.Data.Tests
 					Assert.IsTrue(applicationUser.CreditCard.BillingAddressId == applicationUser.CreditCard.BillingAddress.Id);
 					Assert.IsTrue(applicationUser.CreditCard.BillingAddress.StreetAddress == billingAddress.StreetAddress);
 					Assert.IsTrue(applicationUser.CreditCard.BillingAddress.SuiteNumber == billingAddress.SuiteNumber);
-					Assert.IsTrue(applicationUser.CreditCard.BillingAddress.City == billingAddress.City);
-					Assert.IsTrue(applicationUser.CreditCard.BillingAddress.CountryIsoCode == billingAddress.CountryIsoCode);
-					Assert.IsTrue(applicationUser.CreditCard.BillingAddress.Latitude == billingAddress.Latitude);
-					Assert.IsTrue(applicationUser.CreditCard.BillingAddress.Longitude == billingAddress.Longitude);
+					Assert.IsTrue(applicationUser.CreditCard.BillingAddress.City == billingAddress.City);					
 				}
 			}
 		}
@@ -159,10 +156,7 @@ namespace CarRental.Identity.Data.Tests
 			{
 				StreetAddress = "Str. Brasov nr.9",
 				SuiteNumber = "3",
-				City = "Timisoara",
-				CountryIsoCode = "ro",
-				Latitude = 45.747699,
-				Longitude = 21.222093900000004
+				City = "Timisoara"
 			};
 			creditCard = new CreditCard
 			{

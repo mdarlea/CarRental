@@ -1,10 +1,9 @@
 ﻿namespace CarRental.Api.Infrastructure.Services
 {
+	using CarRental.ReadModel;
 	using System;
 	using System.Collections.Generic;	
 	using System.Threading.Tasks;
-	using CarRental.Api.Models;
-	using CarRental.Domain.Aggregates.AvailableCarAgg;
 
 	public class AvailableCarService : IAvailableCarService
 	{

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace CarRental.Data.Migrations
+namespace CarRental.Data.MySql.Migrations
 {
     public partial class InitialCreate : Migration
     {

@@ -9,14 +9,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRental.Identity.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190309151732_InitialCreate")]
+    [Migration("20190313184129_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.2-servicing-10034");
+                .HasAnnotation("ProductVersion", "2.2.3-servicing-35854");
 
             modelBuilder.Entity("CarRental.Identity.Data.Entities.Address", b =>
                 {
@@ -26,19 +26,6 @@ namespace CarRental.Identity.Data.Migrations
                     b.Property<string>("City")
                         .IsRequired()
                         .HasMaxLength(50);
-
-                    b.Property<string>("CountryIsoCode")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("GeolocationStreet")
-                        .HasMaxLength(150);
-
-                    b.Property<int>("GeolocationStreetNumber");
-
-                    b.Property<double>("Latitude");
-
-                    b.Property<double>("Longitude");
 
                     b.Property<string>("State")
                         .HasMaxLength(30);
@@ -51,6 +38,7 @@ namespace CarRental.Identity.Data.Migrations
                         .HasMaxLength(10);
 
                     b.Property<string>("Zip")
+                        .IsRequired()
                         .HasMaxLength(20);
 
                     b.HasKey("Id");

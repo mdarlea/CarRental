@@ -6,7 +6,7 @@
 
 	public class BookingRepository : Repository<Booking>, IBookingRepository
 	{
-		public BookingRepository(CarRentalUnitOfWork unitOfWork) 
+		public BookingRepository(CarRentalUnitOfWork unitOfWork)
 			: base(unitOfWork)
 		{
 		}

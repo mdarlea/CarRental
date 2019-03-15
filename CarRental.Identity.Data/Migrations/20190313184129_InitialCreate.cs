@@ -15,14 +15,9 @@ namespace CarRental.Identity.Data.Migrations
                         .Annotation("MySQL:AutoIncrement", true),
                     StreetAddress = table.Column<string>(maxLength: 150, nullable: false),
                     SuiteNumber = table.Column<string>(maxLength: 10, nullable: true),
-                    GeolocationStreetNumber = table.Column<int>(nullable: false),
-                    GeolocationStreet = table.Column<string>(maxLength: 150, nullable: true),
                     City = table.Column<string>(maxLength: 50, nullable: false),
                     State = table.Column<string>(maxLength: 30, nullable: true),
-                    Zip = table.Column<string>(maxLength: 20, nullable: true),
-                    CountryIsoCode = table.Column<string>(maxLength: 50, nullable: false),
-                    Latitude = table.Column<double>(nullable: false),
-                    Longitude = table.Column<double>(nullable: false)
+                    Zip = table.Column<string>(maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {

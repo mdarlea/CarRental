@@ -1,4 +1,4 @@
-﻿namespace CarRental.Api.Models
+﻿namespace CarRental.ReadModel
 {
 	public class AvailableCarReadModel
 	{

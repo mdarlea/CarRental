@@ -38,6 +38,7 @@ namespace CarRental.Identity.Api.Extensions
 			builder = new IdentityBuilder(builder.UserType, typeof(IdentityRole), builder.Services);
 			builder.AddEntityFrameworkStores<ApplicationDbContext>()				
 				.AddUserManager<ApplicationUserManager>()
+				.AddUserStore<ApplicationUserStore>()
 				.AddDefaultTokenProviders();
 			
 			services.AddJwtAuthentication(configuration);
