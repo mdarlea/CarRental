@@ -10,6 +10,7 @@
 	{
 		protected IActionResult GetErrorResult(IdentityResult result)
 		{
+			//test
 			if (result == null)
 			{
 				throw new ArgumentNullException(nameof(result));
